@@ -44,18 +44,24 @@ for config in configs:
 print(f"The best model with respect to config\n----{best_config}\nwhich have validation score: {best_score}")
 print(f"{'~'*40}\nStart trainning 'best' model after validation with all dataset")
 
+print(f"{'~'*40}\nCombine test set and validation set to train...")
+total_train_X = np.r_[train_X, val_X]
+total_train_y = np.r_[train_y, val_y]
 
 print(f"{'~'*40}\nDeskew image for better result...")
-deskewed_train = deskew_vectorize(train_X)
+deskewed_train = deskew_vectorize(total_train_X)
 deskewed_test = deskew_vectorize(test_X)
-print(f"{'~'*40}\nUse best model to train...")
-print("The final result❓❓🤔🤔🤔")
-score, clf = validate_model(best_config, deskewed_train, y_train, deskewed_test, test_y, 50_000, 10_0000, print_in_sample_score=False)
+
+print("The final result..................🤔🤔🤔❓")
+score, clf = validate_model(best_config, deskewed_train, total_train_y, deskewed_test, test_y, 60_000, 10_000, print_score=False)
 print("===========>", score)
 
 # Plot some missclassify image
+print("About to plot some wrong classify sample, control+C to stop...")
 predict_y = clf.predict(deskewed_test)
 idx = np.argwhere(predict_y != test_y)
+plt.xticks([])
+plt.yticks([])
 for i in idx:
     plt.imshow(test_X[i].reshape(28, 28), cmap="gray")
     plt.title(f"Correct label {test_y[i]}, predicted label {predict_y[i]}")

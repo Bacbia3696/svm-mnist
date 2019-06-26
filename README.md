@@ -1,5 +1,5 @@
 # SVM for MNIST dataset
-> Simple python implementation with sklearn library for MNIST dataset, which achive more than 98% accuracy
+> Simple python implementation with sklearn library for MNIST dataset, which achive more than 98% accuracy 🎉🎉🎉🎉🎉
 
 ## Fast validation
 We use PCA to reduce input dimension from 784 to 154 but presever 95% information
@@ -8,6 +8,9 @@ We use only a subset of input set to validate to make validation process even fa
 
 ## Preprocess
 We use deskew method as preprocess method when we train the finally model for better accuracy
+
+## Final hypothesis
+After using 10_000 samples for validation, we combine it to 50_000 training samples to to train the final hypothesis. Make the best result possible
 
 
 ## Install dependencies with pip
@@ -48,5 +51,5 @@ The unittest haven't been written yet 😅😅
 
 1512587@student.hcmus.edu.vn
 
-## License
+## License ©
 [MIT](https://choosealicense.com/licenses/mit/)

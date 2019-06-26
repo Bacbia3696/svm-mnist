@@ -64,7 +64,7 @@ def pca_fit(X, infomation_presever=.95):
 
 
 @timing
-def validate_model(param, X_train, y_train, X_val, y_val, N_train=10_000, N_val=10_000, print_in_sample_score=True):
+def validate_model(param, X_train, y_train, X_val, y_val, N_train=10_000, N_val=10_000, print_score=True):
     """Validate SVM model"""
     print(f"Evaluating model:\n----{param}")
     X_train = X_train[:N_train]
@@ -73,9 +73,9 @@ def validate_model(param, X_train, y_train, X_val, y_val, N_train=10_000, N_val=
     y_val = y_val[:N_val]
     clf = SVC(**param)
     clf.fit(X_train, y_train)
+    print("Caculating score...")
     score = clf.score(X_val, y_val)
-    print("Caculating score:")
-    if print_in_sample_score:
+    if print_score:
         print("In sample score:", clf.score(X_train, y_train))
-    print("Validation score:", score)
+        print("Validation score:", score)
     return score, clf
