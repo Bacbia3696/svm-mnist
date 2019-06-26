@@ -29,13 +29,21 @@ This repository is quite heavy because we include mnist dataset file
 The unittest haven't been written yet 😅😅
 
 ## Images
+Start training
+
 ![traning](./screenshots/trainning.png?raw=true)
+
+Final result
 
 ![final](./screenshots/final.png?raw=true)
 
+Deskew effect
+
 ![deskew](./screenshots/deskew.png)
 
-![missClassify](./screenshots/missClassify.png)
+Some missclassify samples
+
+![missClassify](./screenshots/missClassify.jpg)
 
 ## References
 [mnist_homepage](http://yann.lecun.com/exdb/mnist/)

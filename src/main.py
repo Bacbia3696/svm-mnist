@@ -1,7 +1,7 @@
 import numpy as np
 from matplotlib import pyplot as plt
 from sklearn.svm import SVC
-from helpers import read_mnist, pca_fit, validate_model, timing
+from helpers import read_mnist, pca_fit, validate_model
 from sklearn.model_selection import learning_curve
 from preprocess import deskew_vectorize
 
