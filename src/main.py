@@ -13,10 +13,8 @@ print('Initial data shape:', train_X.shape[1])
 pca = pca_fit(X=train_X, infomation_presever=.95)
 X_train = pca.transform(train_X)
 X_val= pca.transform(val_X)
-X_test= pca.transform(test_X)
 y_train = train_y
 y_val = val_y
-y_test = test_y
 print('Data shape after reduce to 95%:', X_train.shape[1])
 
 configs = [
@@ -51,9 +49,14 @@ print(f"{'~'*40}\nDeskew image for better result...")
 deskewed_train = deskew_vectorize(train_X)
 deskewed_test = deskew_vectorize(test_X)
 print(f"{'~'*40}\nUse best model to train...")
-clf = SVC(**config)
-# convert this statement to a function to use timing decorator
-tp = timing(lambda: clf.fit(deskewed_train, y_train))
-tp()
 print("The final result❓❓🤔🤔🤔")
-print(clf.score(deskewed_test, y_test))
+score, clf = validate_model(best_config, deskewed_train, y_train, deskewed_test, test_y, 50_000, 10_0000, print_in_sample_score=False)
+print("===========>", score)
+
+# Plot some missclassify image
+predict_y = clf.predict(deskewed_test)
+idx = np.argwhere(predict_y != test_y)
+for i in idx:
+    plt.imshow(test_X[i].reshape(28, 28), cmap="gray")
+    plt.title(f"Correct label {test_y[i]}, predicted label {predict_y[i]}")
+    plt.show()

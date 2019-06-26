@@ -6,8 +6,6 @@ We use PCA to reduce input dimension from 784 to 154 but presever 95% informatio
 
 We use only a subset of input set to validate to make validation process even faster (10_000 samples)
 
-We expect to faster than $\frac{784}{154}*5^2 \approx 127 (times)$
-
 ## Preprocess
 We use deskew method as preprocess method when we train the finally model for better accuracy
 
@@ -27,6 +25,15 @@ This repository is quite heavy because we include mnist dataset file
 
 The unittest haven't been written yet 😅😅
 
+## Images
+![traning](./screenshots/trainning.png?raw=true)
+
+![final](./screenshots/final.png?raw=true)
+
+![deskew](./screenshots/deskew.png)
+
+![missClassify](./screenshots/missClassify.png)
+
 ## References
 [mnist_homepage](http://yann.lecun.com/exdb/mnist/)
 
@@ -36,11 +43,8 @@ The unittest haven't been written yet 😅😅
 
 [sklearn](https://scikit-learn.org/stable/)
 
-## Images
-[![asd]](./screenshots/trainning.png)
-
-## Author
-bacbia3696@gmail.com
+## Authors
+1612088@student.hcmus.edu.vn
 
 1512587@student.hcmus.edu.vn
 
