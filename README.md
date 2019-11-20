@@ -2,12 +2,12 @@
 > Simple python implementation with sklearn library for MNIST dataset, which achive more than 98% accuracy 🎉🎉🎉🎉🎉
 
 ## Fast validation
-We use PCA to reduce input dimension from 784 to 154 but presever 95% information
+Use PCA to reduce input dimension from 784 to 154 but presever 95% information
 
-We use only a subset of input set to validate to make validation process even faster (10_000 samples)
+Use only a subset of input set to validate to make validation process even faster (10_000 samples)
 
 ## Preprocess
-We use deskew method as preprocess method when we train the finally model for better accuracy
+Deskew method as preprocess method when we train the finally model for better accuracy
 
 ## Final hypothesis
 After using 10_000 samples for validation, we combine it to 50_000 training samples to to train the final hypothesis. Make the best result possible
